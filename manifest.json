@@ -1,25 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Article Reader View",
-  "version": "1.0",
-  "description": "Converts web articles into a clean, readable format",
-  "permissions": [
-    "activeTab",
-    "scripting"
-  ],
+  "name": "Reader View Extension",
+  "version": "1.0.0",
+  "description": "Converts articles into reader view",
+  "permissions": ["activeTab"],
+  "web_accessible_resources": [{
+    "resources": ["src/reader-view.css"],
+    "matches": ["<all_urls>"]
+  }],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content/content.js"],
-      "type": "module"
+      "js": [
+        "src/article-detector.js",
+        "src/content-extractor.js",
+        "src/content-cleaner.js",
+        "src/reader-view.js",
+        "src/main.js"
+      ]
     }
-  ],
-  "web_accessible_resources": [{
-    "resources": ["content/*.js", "reader/*.js"],
-    "matches": ["<all_urls>"],
-    "use_dynamic_url": true
-  }],
-  "action": {
-    "default_title": "Toggle Reader View"
-  }
+  ]
 }
