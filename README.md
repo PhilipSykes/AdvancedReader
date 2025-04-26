@@ -1,4 +1,4 @@
-# Reader Mode Chrome Extension
+# Reader Mod Chrome Extension
 
 A browser extension that transforms cluttered web articles into clean, distraction-free reading experiences.
 
